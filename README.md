@@ -2,6 +2,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Configure the Python API before starting the frontend:
+
+```bash
+cp .env.example .env.local
+```
+
+The local defaults use `WHIS_API_URL=https://whis-user-mgmt-api.vercel.app`, and all browser requests are sent through the Next.js backend proxy at `/api/backend`. API documentation is available in the deployment at `/docs` and attached locally at `/openapi.json`.
+
 First, run the development server:
 
 ```bash
