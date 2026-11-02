@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Boxes, Braces, CreditCard, LayoutDashboard, Menu, Settings, ShieldCheck, UserRound, Users } from "lucide-react";
+import { Braces, LayoutDashboard, Menu, Settings, ShieldCheck, UserRound, UsersRound, UserPlus } from "lucide-react";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -13,11 +13,11 @@ export function AppShell({ title, section, children }: { title: string; section:
   const [session, setSession] = useState(getAuthSession());
   const links = [
     ["Overview", "/", LayoutDashboard],
-    ["Users", "/users", Users],
+    ["Users", "/users", UsersRound],
+    ["Groups", "/groups", UsersRound],
+    ["Roles", "/roles", UserPlus],
     ["Configuration", "/settings", Settings],
-    ["Billing & usage", "/billing", CreditCard],
     ["Authentication", "/auth", ShieldCheck],
-    ["Queue monitor", "/admin/queues", Boxes],
     ["Profile", "/profile", UserRound],
   ] as const;
 
@@ -47,7 +47,7 @@ export function AppShell({ title, section, children }: { title: string; section:
       <div className="brand"><span className="brand-mark">W</span><span>Whis</span></div>
       <nav>
         <div className="nav-label">Workspace</div>
-        {links.slice(0, 4).map(([label, href, Icon]) => <Link key={href} className={`nav-link ${section === label ? "active" : ""}`} href={href}><Icon />{label}</Link>)}
+        {links.slice(0, 5).map(([label, href, Icon]) => <Link key={href} className={`nav-link ${section === label ? "active" : ""}`} href={href}><Icon />{label}</Link>)}
         <div className="nav-label">System</div>
         {links.slice(4).map(([label, href, Icon]) => <Link key={href} className={`nav-link ${section === label ? "active" : ""}`} href={href}><Icon />{label}</Link>)}
       </nav>

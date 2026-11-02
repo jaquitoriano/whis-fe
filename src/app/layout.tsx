@@ -15,7 +15,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "Whis Administration",
-  description: "User management, configuration, metering, and queue operations.",
+  description: "User management, groups, permission roles, and configuration.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
